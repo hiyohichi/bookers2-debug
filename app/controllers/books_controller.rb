@@ -34,9 +34,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def delete
-    @book = Book.find(params[:id])
-    @book.destoy
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
     redirect_to books_path
   end
 
@@ -44,5 +44,12 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title,:body)
+  end
+  
+  def is_matching_login_user
+    book=Book.find(params[:id])
+    unless book.user_id==current_user.id
+      redirect_to books_path
+    end
   end
 end
