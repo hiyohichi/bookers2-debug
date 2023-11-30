@@ -17,21 +17,9 @@
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
         <!--いいね機能-->
-        <% if book.favorited_by?(current_user) %>
-          <td>
-            <%=link_to book_favorite_path(book),method: :delete do %>
-              ❤<%= book.favorites.count %>
-            <%end%>
-          </td>
-          <%else%>
-          <td>
-            <%=link_to book_favorite_path(book),method: :post do %>
-              ♡<%= book.favorites.couunt %>
-            <%end%>
-          </td>
-        <%end%>
+        <td><%= render "iine", book: book %></td>
         <!--コメント数-->
-        <td><%= link_to "コメント数：#{book.book_comments.count}",book_path(book.id) %></td>
+        <td>コメント数: <%= book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
