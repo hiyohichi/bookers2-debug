@@ -32,7 +32,7 @@
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <%end%>
-          <%= render 'iine', book: @book %>
+          <td><%= render 'iine', book: @book %></td>
           <td>コメント数：<%=@book.book_comments.count %></td>
         </tr>
       </table>
@@ -60,7 +60,7 @@
       <!--コメント機能-->
       <div>
         <%= form_with model: [@book, @book_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5' %>
+          <%= f.text_area :comment , rows:'5', class: "w-100" %>
           <%= f.submit "送信" %>
         <% end %>
       </div>

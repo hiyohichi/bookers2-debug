@@ -17,7 +17,7 @@
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
         <!--いいね機能-->
-        <td><%= render "iine", book: book %></td>
+        <td><%= render "books/iine", book: book %></td>
         <!--コメント数-->
         <td>コメント数: <%= book.book_comments.count %></td>
       </tr>
