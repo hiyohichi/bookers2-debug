@@ -19,6 +19,19 @@ class User < ApplicationRecord
   validates :introduction,length: {maximum:50}
 
 
+  #フォロー機能
+  def follow(user_id)
+    to_follow.create(followed_id: user_id)
+  end
+
+  def unfollow(user_id)
+    to_follow.find_by(followed_id: user_id).destroy
+  end
+  #フォローしているか判定
+  def following?(user)
+    followings.include?(user)
+  end
+
 
   def get_profile_image(width,height)
     unless profile_image.attached?
