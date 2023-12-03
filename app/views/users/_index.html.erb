@@ -13,7 +13,11 @@
         <td><%= user.name %></td>
         <td>フォロー数: <%= user.followings.count %></td>
         <td>フォロワー数: <%= user.followers.count %></td>
+        <% if user!=current_user %>
         <td><%= render 'relationships/btn', user: user %></td>
+        <%else%>
+        <td></td>
+        <%end%>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>
