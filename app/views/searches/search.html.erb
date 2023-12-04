@@ -1,0 +1,11 @@
+<h2>Books search for "<strong><%= @word %></strong>"</h2>
+
+<!--Userで検索した時-->
+  <% if @range == "User" %>
+    <%= render "users/index", users: @users %>
+  <% end %>
+
+<!--Bookで検索した時-->
+  <% if @range == "Book" %>
+    <%= render "books/index", books: @books %>
+  <% end %>
